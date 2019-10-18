@@ -1,2 +1,2 @@
 # IEEEx
-Repository for IEExtreme competition
+Repository for IEEExtreme competition
