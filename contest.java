@@ -7,9 +7,49 @@ import java.io.*;
 class Main {
 	public static void main (String[] args) throws java.lang.Exception {
 	    
-		teams();
+		BinaryTree t = new BinaryTree();
+		t.insert(1);
 	}
 
+
+	class BinaryTree{
+
+		public BSTNode root;
+		
+		public BinaryTree(){
+            root = null;
+        }
+
+        public void insert(int data)
+        {
+            root = insertHelp(root, data);
+        }
+        public BSTNode insertHelp(BSTNode current, int data)
+        {
+            if (current == null)
+			{
+				return new BSTNode(data);
+			}
+            if (current.data > data)
+            {
+ 				current.left = insertHelp(current.left, data);
+			}   
+            if (current.data < data)
+                current.right = insertHelp(current.right, data);
+            return current;
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+	
 	public static void weight(){
 		//ascii to compare
 	    //65 - 90 -> uppercase
@@ -83,7 +123,6 @@ class Main {
 		
 	}
 
-
 	public static void pc(){
 		Scanner in = new Scanner(System.in);
 		int ans = 0;
@@ -117,7 +156,6 @@ class Main {
 		//System.out.println(ans);
 		in.close();
 	};
-
 
 	public static void permutation(){
 		Scanner in = new Scanner(System.in);
@@ -165,13 +203,6 @@ class Main {
         System.exit(0);
 	
 	}
-
-
-
-
-
-
-
 
 	public static boolean isInteger(String str) {
     if (str == null) {
@@ -236,4 +267,17 @@ class Main {
 	
 }
 
+class BSTNode
+    {
+        public int data;
+        public BSTNode left;
+        public BSTNode right;
+
+        public BSTNode(int data)
+        {
+            this.data = data;
+            left = null;
+            right = null;
+        }
+    }
 		
