@@ -3,16 +3,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-// Please name your class Main
-class Main {
-	public static void main (String[] args) throws java.lang.Exception {
-	    
-		BinaryTree t = new BinaryTree();
-		t.insert(1);
-	}
-
-
-	class BinaryTree{
+class BinaryTree{
 
 		public BSTNode root;
 		
@@ -30,14 +21,70 @@ class Main {
 			{
 				return new BSTNode(data);
 			}
+			//increase the depth count
             if (current.data > data)
             {
+				current.depth++;
  				current.left = insertHelp(current.left, data);
 			}   
             if (current.data < data)
-                current.right = insertHelp(current.right, data);
-            return current;
+            {
+				current.depth++;
+				current.right = insertHelp(current.right, data);
+			}
+			System.out.println(current.depth);
+			return current;
 		}
+}
+
+class BSTNode
+{
+	public int data;
+	public int depth;
+	public BSTNode left;
+	public BSTNode right;
+
+	public BSTNode(int data)
+	{
+		this.data = data;
+		depth = 1;
+		left = null;
+		right = null;
+	}
+}
+		
+
+// Please name your class Main
+class Main {
+	
+	
+	public static void main (String[] args) throws java.lang.Exception {
+	    
+		BinaryTree t = new BinaryTree();
+		Scanner in = new Scanner(System.in);
+
+		int numEl = Integer.parseInt(in.nextLine());
+		String [] numStr = in.nextLine().split(" ");
+		int[] nodes = new int[numEl];
+		String anStr = "";
+
+		for(int i = 0; i < numEl; i++){
+			nodes[i] = Integer.parseInt(numStr[i]);
+		}
+
+		for (int i = 0; i < numEl; i++){
+			t.insert(nodes[i]);
+		}
+
+		//making the answer string - depths
+		// for(int i = 0; i < numEl; i++){
+		// 	anStr += ans[i];
+		// 	anStr += " ";
+
+		// }
+		// System.out.println(anStr);
+		in.close();
+		
 	}
 
 
@@ -45,11 +92,6 @@ class Main {
 
 
 
-
-
-
-
-	
 	public static void weight(){
 		//ascii to compare
 	    //65 - 90 -> uppercase
@@ -267,17 +309,3 @@ class Main {
 	
 }
 
-class BSTNode
-    {
-        public int data;
-        public BSTNode left;
-        public BSTNode right;
-
-        public BSTNode(int data)
-        {
-            this.data = data;
-            left = null;
-            right = null;
-        }
-    }
-		
