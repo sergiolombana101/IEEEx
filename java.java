@@ -15,7 +15,7 @@ class Main {
 		int k = Integer.parseInt(inp_arr[0]);
 		int j = Integer.parseInt(inp_arr[2]);
 		
-		double numOfWords = 0;
+		int numOfWords = 0;
 		
 		int smallest = (k < j) ? k : j;
 		int larger = (k>j)? k :j; 
@@ -31,28 +31,22 @@ class Main {
 	    }
 	    else{
 	        max_from_one_rapper = smallest - 1;
-	    }
-
-		while(numOfWords != 3){
-			double toAdd = 0;
-		    numOfWords = Math.floor(larger / 2);
-		    if(numOfWords<smallest){
-				toAdd = smallest - numOfWords;
-				numOfWords = numOfWords + toAdd;
-		        
-		    }else{
-		        numOfWords = numOfWords/2;
-		    }
-		    if(numOfWords == 3){
-				System.out.println((int)numOfWords);
-				in.close();
-				System.exit(0); 
-			}
-		    
-		    
 		}
+		int combinations = 0;
+		while(numOfWords != 3){
+			for(int x = 1; x<larger; x++){
+				for(int y = 1; y<smallest;y++){
+					numOfWords = x+y;
+				}
+				if(numOfWords == 3){
+					combinations +=1;
+				}
 
+			}
+			System.out.println(numOfWords);
+			in.close();
+		}
 		
 	}
-		
-	}
+
+}
