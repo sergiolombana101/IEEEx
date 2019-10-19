@@ -17,7 +17,7 @@ class Main {
 			System.exit(0);
 		}
 		
-		if(!isInteger(inp_arr[0]) || isInteger(inp_arr[2])){
+		if(!isInteger(inp_arr[0]) || !isInteger(inp_arr[2])){
 			System.out.println(0);
 			System.exit(0);
 		}
@@ -27,10 +27,7 @@ class Main {
 		int smallest = (k < j) ? k : j;
 		int larger = (k>j)? k :j; 
 		
-		if(k < 0){
-		    System.out.println(0);
-		}
-		if(smallest < 3){
+		if(smallest < 3 || k < 0){
 			System.out.println(0);
 	        System.exit(0);
 	    }
