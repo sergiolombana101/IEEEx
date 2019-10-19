@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "configurations": [
         {
             "type": "java",
@@ -14,6 +15,15 @@
         },
         {
             "type": "java",
+=======
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+>>>>>>> b2439eba3b03fd344e2b2f80c84fb27eddc15404
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"

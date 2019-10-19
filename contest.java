@@ -12,10 +12,10 @@ class BinaryTree{
             root = null;
         }
 
-        public void insert(int data)
-        {
-            root = insertHelp(root, data);
-        }
+        public void insert(int data){
+			root = insertHelp(root, data);
+		}
+		
         public BSTNode insertHelp(BSTNode current, int data)
         {
             if (current == null)
@@ -41,10 +41,8 @@ class BinaryTree{
 
 class BSTNode
 {
-	public int data;
-	public int depth;
-	public BSTNode left;
-	public BSTNode right;
+	public int data, depth;
+	public BSTNode left, right;
 
 	public BSTNode(int data)
 	{
@@ -62,31 +60,7 @@ class Main {
 	
 	public static void main (String[] args) throws java.lang.Exception {
 	    
-		BinaryTree t = new BinaryTree();
-		Scanner in = new Scanner(System.in);
-
-		int numEl = Integer.parseInt(in.nextLine());
-		String [] numStr = in.nextLine().split(" ");
-		int[] nodes = new int[numEl];
-		// String anStr = "";
-
-		for(int i = 0; i < numEl; i++){
-			nodes[i] = Integer.parseInt(numStr[i]);
-		}
-
-		for (int i = 0; i < numEl; i++){
-			t.insert(nodes[i]);
-		}
-
-		//making the answer string - depths
-		// for(int i = 0; i < numEl; i++){
-		// 	anStr += ans[i];
-		// 	anStr += " ";
-
-		// }
-		//System.out.println(anStr);
-
-		in.close();
+		
 		
 	}
 
@@ -94,6 +68,21 @@ class Main {
 
 
 
+	public static void tree(){
+		BinaryTree t = new BinaryTree();
+		Scanner in = new Scanner(System.in);
+
+		int numEl = Integer.parseInt(in.nextLine());
+		String [] numStr = in.nextLine().split(" ");
+		int[] nodes = new int[numEl];
+		
+		for(int i = 0; i < numEl; i++){
+			nodes[i] = Integer.parseInt(numStr[i]);
+			t.insert(nodes[i]);
+		}
+
+		in.close();
+	}
 
 	public static void weight(){
 		//ascii to compare
