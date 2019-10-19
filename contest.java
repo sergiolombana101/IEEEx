@@ -15,37 +15,47 @@ class Main {
 		String [] len = in.nextLine().split(" ");
 		String[] arr = in.nextLine().split(" ");
 		String[] set = in.nextLine().split(" ");
+		int[] set1 = Arrays.stream(set).mapToInt(Integer::parseInt).toArray();
 
 		int totalLen = arr.length + set.length;
 		Integer [] result = new Integer[totalLen];
 		int ind = 0;
+
 
 		if(arr.length != Integer.parseInt(len[0]) || set.length != Integer.parseInt(len[1])){
 			System.out.println(totalLen);
         	in.close();
         	System.exit(0);
 		}
-		for(int j = 0; j < arr.length; j++){
-			for(int i = set.length-1; i >0; i--){
-				if(Integer.parseInt(set[i]) < Integer.parseInt(arr[j])){
-					result[ind] = Integer.parseInt(set[i]);
-				
-				}else{
-					result[ind] = Integer.parseInt(arr[i]);
-				}
-				ind++;
-			}
-			//ind++;
-			
-		}
+		Arrays.sort(set1);
+		//loop to ckeck if current num is small than next - insert
 		
+		for(int j = 0; j<arr.length;j++){
+			for(int i = 0; i<set1.length;i++){
+				if(set1[i] != -1){
+					if((set1[i]) < Integer.parseInt(arr[j])){
+						result[ind] = (set1[i]);
+						ind++;
+						set1[i] = -1; 
+					}else{
+						result[ind] = Integer.parseInt(arr[j]);
+						ind++;
+						
+					}
+				}
+			}
 
-		for (int i = 0; i < result.length; i++){
-        	System.out.println(result[i]);
+		}
+		result[result.length-1] = Integer.parseInt(arr[arr.length-1]);
+
+	
+        for(int n = 0; n<result.length;n++){
+			System.out.print(result[n]+" ");
 		}
 
         in.close();
         System.exit(0);
+	
 	}
 
 
