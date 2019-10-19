@@ -6,7 +6,8 @@ import java.io.*;
 class BinaryTree{
 
 		public BSTNode root;
-		
+		String anStr = "";
+
 		public BinaryTree(){
             root = null;
         }
@@ -32,7 +33,8 @@ class BinaryTree{
 				current.depth++;
 				current.right = insertHelp(current.right, data);
 			}
-			System.out.println(current.depth);
+
+			System.out.print(current.depth + " ");
 			return current;
 		}
 }
@@ -66,7 +68,7 @@ class Main {
 		int numEl = Integer.parseInt(in.nextLine());
 		String [] numStr = in.nextLine().split(" ");
 		int[] nodes = new int[numEl];
-		String anStr = "";
+		// String anStr = "";
 
 		for(int i = 0; i < numEl; i++){
 			nodes[i] = Integer.parseInt(numStr[i]);
@@ -82,7 +84,8 @@ class Main {
 		// 	anStr += " ";
 
 		// }
-		// System.out.println(anStr);
+		//System.out.println(anStr);
+
 		in.close();
 		
 	}
