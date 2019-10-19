@@ -7,8 +7,117 @@ import java.io.*;
 class Main {
 	public static void main (String[] args) throws java.lang.Exception {
 	    
-		permutation();
+		teams();
 	}
+
+	public static void weight(){
+		//ascii to compare
+	    //65 - 90 -> uppercase
+	    //97 - 122 ->lowercase (substract 32)
+	    //check for uppercase, convert if needed
+	    
+	    Scanner in = new Scanner(System.in);
+	    
+        int numRaces = Integer.parseInt(in.nextLine().split(" ")[0]);
+        int numCom = Integer.parseInt(in.nextLine().split(" ")[1]);
+        int ans = 0;
+        
+        for (int i = 0; i < numCom; i++){
+            String com = in.nextLine();
+            byte[] bytes = com.getBytes("US-ASCII");
+            
+            //if lowercase
+            if(bytes[0] >= 97 && bytes[0] <= 122){
+                bytes[0] -= 32;
+            }
+            if(bytes[1] >= 97 && bytes[1] <= 122){
+                bytes[1] -= 32;
+            }
+            
+            //if a letter
+            if((bytes[0] >= 65 && bytes[0] <= 90) || 
+                (bytes[1] >= 65 && bytes[1] <= 90)){
+                
+                //DO SOMETHING  
+            }
+            else{
+             
+                in.close();
+            
+                //will be 0 if the values are not letters
+                System.out.println(0); 
+                System.exit(0);
+            }
+            
+        }
+        
+        in.close();
+            
+        System.out.println(ans); 
+        System.exit(0);
+	}
+
+	public static void teams(){
+		Scanner in = new Scanner(System.in);
+		int numOfPpl = 0;
+		int numTeams = Integer.parseInt(in.nextLine());
+
+		for(int i = 0; i < numTeams; i++){
+			//check if all members sit beside each other.
+			String[] line = in.nextLine().split("");
+			String team = line[i];
+
+			for(int j = i; j < numTeams; j++){
+				if(line[j] == line[i]){
+					team = line[i];
+					line[i] = line[j];
+					line[j] = team;
+					numOfPpl++; 
+				}
+				System.out.println(numOfPpl);
+			}
+			  
+		}
+
+		in.close();
+		
+	}
+
+
+	public static void pc(){
+		Scanner in = new Scanner(System.in);
+		int ans = 0;
+		int cases = Integer.parseInt(in.nextLine());
+
+
+		// for each test case
+		for (int i = 0; i < cases; i++) {
+			
+			double budget = Double.parseDouble(in.nextLine());
+			int comps = Integer.parseInt(in.nextLine());
+
+			//line 4
+			String [] optsPerComp = in.nextLine().split(" ");
+			for(i = 0; i < comps; i++){
+				optsPerComp[i] = Integer.parseInt(optsPerComp[i]);
+			}
+
+
+			//map options with values
+			// for (int j = 0; j < comps; j++){
+			// 	int len = (in.nextLine().split(" ").length);
+			// 	//System.out.println(len);
+			// 	int [] optCosts = new int[len];
+			// 	opts[i] = optCosts;
+
+
+			// }
+		}
+		
+		//System.out.println(ans);
+		in.close();
+	};
+
 
 	public static void permutation(){
 		Scanner in = new Scanner(System.in);
@@ -28,7 +137,6 @@ class Main {
         	System.exit(0);
 		}
 		Arrays.sort(set1);
-		//loop to ckeck if current num is small than next - insert
 		
 		for(int j = 0; j<arr.length;j++){
 			for(int i = 0; i<set1.length;i++){
