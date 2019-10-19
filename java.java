@@ -12,41 +12,39 @@ class Main {
 		
 		String [] inp_arr = inp.split("");
 		
-		int k = Integer.parseInt(inp_arr[0]);
-		int j = Integer.parseInt(inp_arr[2]);
-		
-		int numOfWords = 0;
-		
+		if(inp_arr.length < 2) {
+			System.out.println(0);
+			System.exit(0);
+		}
+		if(inp_arr[0] instanceof String || inp_arr[2] instanceof String){
+			System.out.println(0);
+			System.exit(0);
+		}
+		int k = (inp_arr[0] != null) ? Integer.parseInt(inp_arr[0]) : 0 ;
+		int j = (inp_arr[2] != null) ? Integer.parseInt(inp_arr[2]) : 0 ;
+				
 		int smallest = (k < j) ? k : j;
 		int larger = (k>j)? k :j; 
 		
-		int max_from_one_rapper;
+		if(k < 0){
+		    System.out.println(0);
+		}
 		if(smallest < 3){
-			numOfWords = 0;
-			System.out.println(numOfWords);
+			System.out.println(0);
 	        System.exit(0);
 	    }
-	    else if(smallest == 3){
-	        max_from_one_rapper = smallest;
-	    }
-	    else{
-	        max_from_one_rapper = smallest - 1;
-		}
 		int combinations = 0;
-		while(numOfWords != 3){
-			for(int x = 1; x<larger; x++){
-				for(int y = 1; y<smallest;y++){
-					numOfWords = x+y;
-				}
-				if(numOfWords == 3){
+		for(int x = 1; x<=larger; x++){
+			for(int y = 1; y<=smallest;y++){
+				if(x+y == 3){
 					combinations +=1;
 				}
-
 			}
-			System.out.println(numOfWords);
-			in.close();
 		}
+        in.close();
+		System.out.println(combinations);
 		
 	}
-
 }
+
+		
